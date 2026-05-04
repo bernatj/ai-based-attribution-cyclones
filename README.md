@@ -1,5 +1,7 @@
 # ai-based-attribution-cyclones
 
+Repository accompanying the paper: "Forecast-based Attribution of Extratropical Cyclones Using AI Weather Models"
+
 Minimal reproduction repo for the four AI weather prediction models used in the paper:
 
 - `pangu`
@@ -7,7 +9,7 @@ Minimal reproduction repo for the four AI weather prediction models used in the 
 - `aurora`
 - `aifs`
 
-The repo is intentionally manual. There is no supported orchestrator workflow here. You run the scripts directly, in order, and then open the notebooks.
+The repo is intentionally manual. Run the scripts directly, in order, and then open the notebooks.
 
 ## Repo Layout
 
@@ -191,8 +193,7 @@ Use one experiment label consistently. The notebooks currently expect:
 export PGW_EXPERIMENT=PGW_multimodel_v1
 ```
 
-For `pangu` and `fcnv2`, the rerun uses `--experiment "_${PGW_EXPERIMENT}"` on purpose.
-That leading underscore makes the Earth2MIP output filenames match the notebook loader pattern.
+For `pangu` and `fcnv2`, use `--experiment "_${PGW_EXPERIMENT}"`.
 
 ### 1. Reuse the factual downloads or rerun them
 
@@ -303,7 +304,7 @@ Set `storm_name` in the notebook configuration cell before running the analysis.
 - Factual `pangu` and `fcnv2` runs read the original GRIB downloads.
 - PGW `pangu` and `fcnv2` runs read the PGW NetCDF files produced by `apply_pgw_deltas_to_inicon_cmip6.py`.
 - The PGW experiment label used in the reruns must match the label expected by the notebooks.
-- The notebooks use env-backed data roots and repo-local imports; they no longer depend on the old `../../shared` path.
+- The notebooks use env-backed data roots and repo-local imports.
 - The bundled `cmip6_deltas/` folder contains only the multimodel-mean NetCDF files needed by the supported four-model PGW workflow, so it can be uploaded or shared independently from the rest of the data tree.
 
 ## Optional IFS Route
@@ -347,9 +348,3 @@ python scripts/convert_ifs_grib_to_netcdf.py input.grib output.nc
 The loader in `scripts/utils.py` already supports `model='ifs'`, including coordinate normalization for common IFS NetCDF/GRIB exports.
 
 This optional IFS route is factual-only in the current repo. There is no bundled PGW or automated IFS workflow here.
-
-## Publishing Notes
-
-- `notebook_runs/` contains local execution logs and is ignored.
-- `notebooks/*.pdf` are generated figures from notebook runs and are ignored.
-- The notebook outputs and intermediate figures are not required for the published repo.

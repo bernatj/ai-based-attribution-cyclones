@@ -5,7 +5,7 @@ from __future__ import annotations
 import datetime as dt
 import os
 from dataclasses import dataclass
-from typing import Iterable, List
+from typing import List
 
 
 @dataclass
@@ -37,6 +37,8 @@ def build_schedule(
     env_prefix: str = 'AI_FORECAST',
 ) -> Schedule:
     """Construct a schedule using CLI overrides, environment variables, or defaults."""
+    # Keep the scripts flexible: CLI arguments win, otherwise fall back to
+    # per-script environment variables such as AI_FORECAST_START.
     env_start = os.getenv(f'{env_prefix}_START')
     env_end = os.getenv(f'{env_prefix}_END')
     env_delta = os.getenv(f'{env_prefix}_DELTA_HOURS')
@@ -56,6 +58,8 @@ def generate_init_times(schedule: Schedule) -> List[dt.datetime]:
     """Return every initialization time from ``start`` to ``end`` inclusive."""
     times: List[dt.datetime] = []
     current = schedule.start
+    # The workflow expects an inclusive schedule, so keep the final init time
+    # when it lands exactly on the requested end timestamp.
     delta = dt.timedelta(hours=schedule.delta_hours)
     while current <= schedule.end:
         times.append(current)
@@ -65,7 +69,3 @@ def generate_init_times(schedule: Schedule) -> List[dt.datetime]:
 
 def format_datetime(value: dt.datetime) -> str:
     return value.strftime(DEFAULT_FMT)
-
-
-def parse_datetime_list(values: Iterable[str]) -> List[dt.datetime]:
-    return [dt.datetime.strptime(value, DEFAULT_FMT) for value in values]
