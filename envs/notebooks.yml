@@ -27,3 +27,4 @@ dependencies:
   - nbclient
   - nbconvert
   - nbformat
+  - ecmwf-opendata

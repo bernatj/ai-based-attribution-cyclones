@@ -19,6 +19,7 @@ The repo is intentionally manual. There is no supported orchestrator workflow he
 
 Optional helper:
 
+- `scripts/download_ifs_data.py`: download IFS reference forecasts from ECMWF open data directly into the notebook layout
 - `scripts/convert_ifs_grib_to_netcdf.py`: convert a single IFS GRIB file to NetCDF
 
 ## Environment Notes
@@ -54,6 +55,7 @@ conda env create -f envs/notebooks.yml
 
 You only need the envs for the models you plan to run.
 The `notebooks` env is separate and only intended for analysis and plotting.
+It also includes the optional ECMWF open-data client used by `scripts/download_ifs_data.py`.
 
 Useful environment variables:
 
@@ -307,8 +309,23 @@ Set `storm_name` in the notebook configuration cell before running the analysis.
 ## Optional IFS Route
 
 IFS is not part of the default four-model PGW workflow, but the main notebook can read IFS reference files for factual comparison plots.
+The supported downloader here is ECMWF open data only.
 
 Use the `notebooks` environment for IFS conversion and analysis.
+
+Preferred path:
+
+```bash
+conda activate notebooks
+python scripts/download_ifs_data.py \
+  --start 2025110700 \
+  --end 2025111400 \
+  --delta-hours 12 \
+  --wind-level 850
+```
+
+This writes one NetCDF file per variable and init time under `CYCLONE_IFS_ROOT`.
+With `--wind-level 850`, the downloader matches the current notebook default `use_850_winds = True`.
 
 Expected output layout:
 
