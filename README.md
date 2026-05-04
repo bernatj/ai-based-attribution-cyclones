@@ -14,7 +14,7 @@ The repo is intentionally manual. Run the scripts directly, in order, and then o
 ## Repo Layout
 
 - `scripts/`: model download, PGW, and forecast runners
-- `notebooks/extratropical_storm_predictability_multimodel.ipynb`: main multimodel notebook for factual and PGW diagnostics
+- `notebooks/extratropical_storm_multimodel_forecast_skill_attribution.ipynb`: main multimodel notebook for factual and PGW diagnostics
 - `notebooks/extratropical_storm_AIFS_precip_attribution.ipynb`: AIFS precipitation notebook
 - `cmip6_deltas/`: minimal CMIP6 multimodel-mean delta bundle for the supported PGW workflow
 - `envs/`: starter conda environments, one per model
@@ -173,7 +173,7 @@ python scripts/run_AIFS_forecast.py \
 
 Open:
 
-- `notebooks/extratropical_storm_predictability_multimodel.ipynb`
+- `notebooks/extratropical_storm_multimodel_forecast_skill_attribution.ipynb`
 
 Use:
 
@@ -294,7 +294,7 @@ python scripts/run_AIFS_forecast.py \
 
 Open either:
 
-- `notebooks/extratropical_storm_predictability_multimodel.ipynb`
+- `notebooks/extratropical_storm_multimodel_forecast_skill_attribution.ipynb`
 - `notebooks/extratropical_storm_AIFS_precip_attribution.ipynb`
 
 Set `storm_name` in the notebook configuration cell before running the analysis.
