@@ -1,0 +1,27 @@
+# Starter environment for Aurora runs.
+# The exact Aurora and torch build may need to change depending on GPU, CUDA,
+# and driver support on the target machine.
+name: aurora
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - xarray
+  - dask
+  - netcdf4
+  - h5netcdf
+  - matplotlib
+  - cartopy
+  - geopy
+  - pyproj
+  - regionmask
+  - tqdm
+  - pip:
+      - cdsapi
+      - torch
+      # Install the Aurora package/version that matches your hardware setup.

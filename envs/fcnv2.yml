@@ -1,0 +1,32 @@
+# Starter environment for FCNV2 runs.
+# Exact torch/CUDA/Earth2MIP setup may need adjustment for your hardware.
+# If Earth2MIP or DDF are installed from local checkouts, point DDF_PATH and
+# EARTH2MIP_PATH to those clones instead of relying on pip packages.
+name: fcnv2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - xarray
+  - dask
+  - netcdf4
+  - h5netcdf
+  - cfgrib
+  - eccodes
+  - metpy
+  - matplotlib
+  - cartopy
+  - geopy
+  - pyproj
+  - regionmask
+  - tqdm
+  - ruamel.yaml
+  - pip:
+      - cdsapi
+      - torch
+      - earth2mip

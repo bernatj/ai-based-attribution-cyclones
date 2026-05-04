@@ -1,0 +1,29 @@
+# Notebook and analysis environment.
+# This env is only for post-processing and plotting; it does not include the
+# model runtimes needed to generate new forecasts.
+name: notebooks
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - xarray
+  - dask
+  - netcdf4
+  - h5netcdf
+  - cfgrib
+  - eccodes
+  - metpy
+  - matplotlib
+  - cartopy
+  - geopy
+  - pyproj
+  - regionmask
+  - jupyterlab
+  - ipykernel
+  - nbclient
+  - nbconvert
+  - nbformat

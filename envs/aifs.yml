@@ -1,0 +1,34 @@
+# Starter environment for AIFS runs.
+# The torch, flash-attn, and anemoi package builds may need adjustment for the
+# target GPU, CUDA version, and compiler stack.
+name: aifs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11.11
+  - pip
+  - numpy=2.2.0
+  - pandas
+  - xarray=2024.11.0
+  - scipy=1.14.1
+  - dask
+  - netcdf4=1.7.2
+  - h5netcdf
+  - matplotlib
+  - cartopy
+  - geopy
+  - pyproj
+  - regionmask
+  - tqdm=4.67.1
+  - pip:
+      - torch==2.5.1
+      - cdsapi==0.7.6
+      - earthkit-data==0.11.4
+      - earthkit-regrid==0.4.0
+      - anemoi-inference==0.4.9
+      - anemoi-models==0.3.1
+      - anemoi-transform==0.1.0
+      - anemoi-utils==0.4.9
+      - huggingface_hub
+      - flash-attn==2.7.2.post1
