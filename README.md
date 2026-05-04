@@ -13,10 +13,10 @@ The repo is intentionally manual. Run the scripts directly, in order, and then o
 
 ## Repo Layout
 
-- `scripts/`: model download, PGW, and forecast runners
-- `notebooks/extratropical_storm_multimodel_forecast_skill_attribution.ipynb`: main multimodel notebook for factual and PGW diagnostics
+- `scripts/`: model download, pseudo-global-warming (PGW), and forecast runners
+- `notebooks/extratropical_storm_multimodel_forecast_skill_attribution.ipynb`: main multimodel notebook for factual and pseudo-global-warming (PGW) diagnostics
 - `notebooks/extratropical_storm_AIFS_precip_attribution.ipynb`: AIFS precipitation notebook
-- `cmip6_deltas/`: minimal CMIP6 multimodel-mean delta bundle for the supported PGW workflow
+- `cmip6_deltas/`: minimal CMIP6 multimodel-mean delta bundle for the supported pseudo-global-warming (PGW) workflow
 - `envs/`: starter conda environments, one per model
 
 Optional helper:
@@ -182,10 +182,10 @@ conda activate notebooks
 jupyter lab
 ```
 
-The main notebook is centered on the four paper AI models for the PGW attribution workflow.
+The main notebook is centered on the four paper AI models for the pseudo-global-warming (PGW) attribution workflow.
 For factual evaluation plots, it can also include an optional `IFS` reference if IFS files are available under `CYCLONE_IFS_ROOT`.
 
-## PGW Workflow
+## Pseudo-global-warming (PGW) Workflow
 
 Use one experiment label consistently. The notebooks currently expect:
 
